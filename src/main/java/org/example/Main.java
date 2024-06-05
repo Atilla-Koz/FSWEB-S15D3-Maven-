@@ -11,9 +11,12 @@ public class Main {
         employees.add(new Employee(1, "John", "Doe"));
         employees.add(new Employee(2, "Jane", "Doe"));
         employees.add(new Employee(3, "Jim", "Beam"));
-        employees.add(new Employee(1, "John", "Doe"));
-        employees.add(new Employee(4, "Jack", "Daniels"));
-        employees.add(new Employee(2, "Jane", "Doe"));
+        employees.add(new Employee(4, "Burak", "Cevizli"));
+        employees.add(new Employee(5, "Atilla", "K"));
+        employees.add(new Employee(6, "Damla", "A"));
+        employees.add(new Employee(7, "Deren", "KA"));
+        employees.add(new Employee(8, "John", "Doe"));
+
 
         List<Employee> duplicates = findDuplicates(employees);
         System.out.println("Duplicates: " + duplicates);
@@ -40,7 +43,6 @@ public class Main {
     }
 
     public static Map<Integer, Employee> findUniques(List<Employee> list) {
-        Map<Integer, Employee> uniqueMap = new HashMap<>();
         Map<Integer, Integer> countMap = new HashMap<>();
 
         for (Employee employee : list) {
@@ -49,6 +51,7 @@ public class Main {
             countMap.put(id, countMap.getOrDefault(id, 0) + 1);
         }
 
+        Map<Integer, Employee> uniqueMap = new HashMap<>();
         for (Employee employee : list) {
             if (employee == null) continue;
             int id = employee.getId();
@@ -59,6 +62,7 @@ public class Main {
 
         return uniqueMap;
     }
+
 
     public static List<Employee> removeDuplicates(List<Employee> list) {
         Map<Integer, Integer> countMap = new HashMap<>();
