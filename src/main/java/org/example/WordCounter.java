@@ -5,24 +5,7 @@ import java.util.Map;
 
 public class WordCounter {
 
-    public static Map<String, Integer> calculateWord(String text) {
-        Map<String, Integer> wordCount = new HashMap<>();
-
-
-        String[] words = text.split("\\W+");
-        for (String word : words) {
-           if(word.isEmpty()){
-               continue;
-           }
-           word = word.toLowerCase();
-           wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
-
-        }
-        return wordCount;
-    }
-
-
-    public static void main(String[] args) {
+    public static Map<String, Integer> calculatedWord() {
         String text = "When the offensive resumed, the Turks received their first victory when the Greeks encountered stiff resistance in the battles of First and Second İnönü," +
                 " due to İsmet Pasha's organization of an irregular militia into a regular army. " +
                 " The two victories led to Allied proposals to amend the Treaty of Sèvres where both Ankara and Istanbul were represented, but Greece refused." +
@@ -35,11 +18,20 @@ public class WordCounter {
                 " Almost of year of stalemate without much fighting followed, during which Greek moral and discipline faltered while Turkish strength increased." +
                 " French and Italian forces evacuated from Anatolia. The Allies offered an armistice to the Turks, which Mustafa Kemal refused.";
 
-        Map<String, Integer> wordCount = calculateWord(text);
+        Map<String, Integer> wordCount = new HashMap<>();
 
-        for (Map.Entry<String, Integer> entry : wordCount.entrySet()) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
+
+        String[] words = text.split("\\W+");
+
+
+        for (String word : words) {
+            if (word.isEmpty()) {
+                continue;
+            }
+            word = word.toLowerCase();
+            wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
         }
-    }
 
+        return wordCount;
     }
+}
